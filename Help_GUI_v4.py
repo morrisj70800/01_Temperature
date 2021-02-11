@@ -22,12 +22,9 @@ class Converter:
         self.temp_converter_label.grid(row=0)
 
 
-
-
-
-
-
-
-
-
-
+# main routine
+if __name__ == "__main__":
+    root = Tk()
+    root.title("Temperature Convertor")
+    something = Converter()
+    root.mainloop()
