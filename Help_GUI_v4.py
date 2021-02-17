@@ -26,7 +26,7 @@ class Converter:
         self.help_button = Button(self.converter_frame, text="help",
                                   font=("arial", "14"),
                                   padx=10, pady=10, command=self.help)
-        self.help_button.grid(row=1)
+        self.help_button.grid(row=1, pady=10)
 
     def help(self):
         print("You asked for help")
