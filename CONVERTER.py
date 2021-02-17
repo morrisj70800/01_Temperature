@@ -5,7 +5,6 @@ import random
 
 class Converter:
      def __init__(self):
-
         # Formatting variables
         background_color = "light blue"
 
@@ -23,14 +22,14 @@ class Converter:
         self.temp_heading_label.grid(row=0)
 
         # User instructions (row 1)
-        self.temp_insturctions_label =Label(self.converter_frame,
+        self.temp_instructions_label = Label(self.converter_frame,
                                             text="Type in the amount to be "
                                                  "converted and then push "
                                                  "one of the buttons below...",
                                             font="Arial 10 italic", wrap=250,
                                             justify=LEFT, bg=background_color,
                                             padx=10, pady=10)
-        self.temp_insturctions_label.grid(row=1)
+        self.temp_instructions_label.grid(row=1)
         self.to_convert_entry = Entry(self.converter_frame, width=20,
                                       font="Arial 14 bold")
         self.to_convert_entry.grid(row=2)
@@ -49,7 +48,7 @@ class Converter:
         self.to_c_button.grid(row=0, column=0)
 
         self.to_f_button = Button(self.conversion_buttons_frame,
-                                  text="To Fahrenheit", font="arial b10 bold",
+                                  text="To Fahrenheit", font="arial 10 bold",
                                   bg="orchid1", padx=10, pady=10)
         self.to_f_button.grid(row=0, column=1)
 
@@ -70,8 +69,6 @@ class Converter:
         self.help_button = Button(self.hist_help_frame, font="arial 12 bold",
                                   text="Help", width=5)
         self.help_button.grid(row=0, column=1)
-
-
 
 
 # main routine
