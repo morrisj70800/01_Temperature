@@ -4,7 +4,7 @@ import random
 
 
 class Converter:
-     def __init__(self):
+    def __init__(self):
         # Formatting variables
         background_color = "light blue"
 
@@ -72,23 +72,20 @@ class Converter:
                                   text="Help", width=5)
         self.help_button.grid(row=0, column=1)
 
-        def temp_convert(self, to):
-         print(to)
+    def temp_convert(self, to):
+        print(to)
 
-         # Retrieve amount entered into Entry Field
+        error = "#ffafaf"  # pale pink background for when entry box has errors
 
-         # Check amount is a valid number
+        # Retrieve amount entered into Entry field
+        to_convert = self.to_convert_entry.get()
 
-         # Convert to F
+        try:
+            to_convert = float(to_convert)
+            print("yay")
 
-         # Convert to C
-
-         # Round
-
-         # Display answer
-
-         # Add Answer to list for Hisotry
-
+        except ValueError:
+            print("oops")
 
 
 # main routine
