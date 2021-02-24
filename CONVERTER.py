@@ -9,6 +9,9 @@ class Converter:
         # Formatting variables
         background_color = "light blue"
 
+        # Initialise list to hold calculations history
+        self.all_calculations = []
+
         # Converter Frame
         self.converter_frame = Frame(width=300, bg=background_color,
                                      pady=10)
@@ -36,10 +39,6 @@ class Converter:
         self.to_convert_entry = Entry(self.converter_frame, width=20,
                                       font="Arial 14 bold")
         self.to_convert_entry.grid(row=2)
-
-        # Temperature entry box (row 2)
-        self.to_convert_entry = Entry(self.converter_frame, width=20,
-                                      font="Arial 14 bold")
 
         # Conversion button frame (row 3), orchid3 | khaki1
         self.conversion_buttons_frame =Frame(self.converter_frame)

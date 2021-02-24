@@ -23,4 +23,4 @@ class Converter:
                                         font="Arial 19 bold", bg=background_color,
                                         padx=10, pady=10)
         self.temp_heading_label.grid(row=0)
-        
+
