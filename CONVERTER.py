@@ -76,7 +76,6 @@ class Converter:
 
     def temp_convert(self, low):
         print(low)
-        print("in function")
 
         error = "#ffafaf"  # pale pink background for when entry box has errors
 
@@ -94,7 +93,6 @@ class Converter:
                 to_convert = self.round_it(to_convert)
                 fahrenheit = self.round_it(fahrenheit)
                 answer = "{} degrees C is {} degrees F".format(to_convert, fahrenheit)
-                print(answer)
 
             # Check and convert to Centigrade
             elif low == -459 and to_convert >= low:
@@ -115,7 +113,11 @@ class Converter:
             else:
                 self.converted_label.configure(text=answer, fg="red")
                 self.to_convert_entry.configure(bg=error)
+
             # Add Answer to list for history
+            if answer != "Too Cold":
+                self.all_calculations.append(answer)
+                print(self.all_calculations)
 
         except ValueError:
             self.converted_label.configure(text="Enter a Number!!", fg="red")
