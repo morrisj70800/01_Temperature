@@ -1,7 +1,6 @@
-import  ...
-
 from tkinter import *
 from functools import partial   # To prevent unwanted windows
+import random
 
 
 class Converter:
@@ -13,9 +12,6 @@ class Converter:
         # In actual program this is blank and is populated with user calculations
         self.all_calc_list = ['0 degrees C is -17.8 degrees F',
                               '0 degrees C is 32 degrees F',
-                              '40 degrees C is 104 degrees F',
-                              '40 degrees C is 4.4 degrees F',
-                              '12 degrees C is 53.6 degrees F',
                               '24 degrees C is 75.2 degrees F',
                               '100 degrees C is 37.8 degrees F']
 
@@ -94,6 +90,16 @@ class History:
             for item in range(0, 7):
                 history_string += calc_history[len(calc_history)
                                                - item - 1]+"\n"
+
+        else:
+            for item in calc_history:
+                history_string += calc_history[len(calc_history) -
+                                               calc_history.index(item) - 1] + "\n"
+                self.history_text.config(text="Here is your calculation "
+                                         "history. You can use the "
+                                         "export button to save this "
+                                         "data to a text file if "
+                                         "desired.")
 
         # label to display calculation history to user
         self.calc_label = Label(self.history_frame, text=history_string,

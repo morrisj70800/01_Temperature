@@ -33,18 +33,18 @@ class Converter:
                                             font="Arial 10 italic", wrap=290,
                                             justify=LEFT, bg=background_color,
                                             padx=10, pady=10)
-<<<<<<< Updated upstream
+
         self.temp_instructions_label.grid(row=1)
-=======
+
         self.temp_insturctions_label.grid(row=1)
->>>>>>> Stashed changes
+
 
         # Temperature entry box (row 2)
         self.to_convert_entry = Entry(self.converter_frame, width=20,
                                       font="Arial 14 bold")
         self.to_convert_entry.grid(row=2)
 
-<<<<<<< Updated upstream
+
         # Conversion button frame (row 3), orchid3 | khaki1
         self.conversion_buttons_frame =Frame(self.converter_frame)
         self.conversion_buttons_frame.grid(row=3, pady=10)
@@ -66,7 +66,7 @@ class Converter:
                                      fg="purple", bg=background_color,
                                      pady=10, text="Conversion goes here")
         self.converted_label.grid(row=4)
-=======
+
         # Conversion buttons frame (row 3)
         self.converter_buttons_frame = Frame(self.converter_frame)
         self.converter_buttons_frame.grid(row=3, pady=10)
@@ -84,7 +84,7 @@ class Converter:
         # Answer label (row 4)
         self.converted_label = Label(self.converter_frame, font="arial 14 bold",
                                      fg="purple")
->>>>>>> Stashed changes
+
 
         # History / Help button frame (row 5)
         self.hist_help_frame = Frame(self.converter_frame)
