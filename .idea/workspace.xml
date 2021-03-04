@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2b4e2854-418b-4fed-904c-1ceaa3a16635" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CONVERTER.py" beforeDir="false" afterPath="$PROJECT_DIR$/CONVERTER.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/History_GUI V.2.py" beforeDir="false" afterPath="$PROJECT_DIR$/History_GUI V.2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Help_GUI_v4.py" beforeDir="false" afterPath="$PROJECT_DIR$/Help_GUI_v4.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,14 +29,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/CONVERTER.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Help_GUI_v4.py" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\COM301 BS\01_Temperature" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.History_GUI V.2">
+  <component name="RunManager" selected="Python.Help_GUI_v4">
     <configuration name="CONVERTER (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="01_Temperature" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -145,11 +144,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Help_GUI_v4" />
         <item itemvalue="Python.History_GUI V.2" />
         <item itemvalue="Python.CONVERTER (1)" />
         <item itemvalue="Python.CONVERTER" />
         <item itemvalue="Python.HISTORY GUI" />
-        <item itemvalue="Python.Help_GUI_v4" />
       </list>
     </recent_temporary>
   </component>
