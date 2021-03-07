@@ -13,9 +13,6 @@ class Converter:
         # In actual program this is blank and is populated with user calculations
         self.all_calc_list = ['0 degrees C is -17.8 degrees F',
                               '0 degrees C is 32 degrees F',
-                              '40 degrees C is 104 degrees F',
-                              '40 degrees C is 4.4 degrees F',
-                              '12 degrees C is 53.6 degrees F',
                               '24 degrees C is 75.2 degrees F',
                               '100 degrees C is 37.8 degrees F']
 
@@ -44,7 +41,7 @@ class Converter:
 
 
 class History:
-    def __init__(self, partner):
+    def __init__(self, partner, calc_history):
 
         background ="light blue"
 
@@ -82,12 +79,25 @@ class History:
         # Generate string from list of calculations...
         history_string = ""
 
-        if len(calc_hisotry) >= 7:
+        if len(calc_history) >= 7:
             for item in range(0, 7):
                 history_string += calc_history[len(calc_history)
                                                - item - 1]+"\n"
 
-        # label to display calculation hisotry to user
+        else:
+            for item in calc_history:
+                history_string += calc_history[len(calc_history) -
+                                               calc_history.index(item) - 1] + "\n"
+                self.history_text.config(text="Here is your calculation "
+                                              "history. You can use the "
+                                              "export button to save this "
+                                              "data to a text file if "
+                                              "desired.")
+
+        # label to display calculation history to user
+        self.calc_label = Label(self.history_frame, text=history_string,
+                                bg=background,font="arial 12", justify=LEFT)
+        self.calc_label.grid(row= 2)
 
         # Export / Dismiss Buttons Frame (row 3)
         self.export_dismiss_frame = Frame(self.history_frame)
@@ -116,5 +126,3 @@ if __name__ == "__main__":
     root.title("Temperature Convertor")
     something = Converter()
     root.mainloop()
-
-
