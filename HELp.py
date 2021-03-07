@@ -1,30 +1,52 @@
-from tkinter import *
-from functools import partial   # To prevent unwanted windows
-import random
-
-
 class Converter:
     def __init__(self):
 
+        # Formatting Variables
         # Formatting variables
         background_color = "light blue"
 
+        # In actual program this is blank and is populated with user calculations
+        self.all_calc_list = ['0 degrees C is -17.8 degrees F',
+                              '0 degrees C is 32 degrees F',
+                              '24 degrees C is 75.2 degrees F',
+                              '100 degrees C is 37.8 degrees F']
         # Initialise list to hold calculations history
         self.all_calc_list = []
 
+        #  Converter Main Screen GUI...
+        self.all_calculations = []
+        # Converter Main Screen GUI...
+        self.converter_frame = Frame(width=600, height=600, bg=background_color,
         # Converter Frame
         self.converter_frame = Frame(width=300, bg=background_color,
                                      pady=10)
         self.converter_frame.grid()
 
+        # Temperature Converter heading (row 0)
         # Temperature Converter Heading (row 0)
         self.temp_heading_label = Label(self.converter_frame,
                                         text="Temperature Converter",
+                                        font="Arial 19 bold", bg=background_color,
                                         font="arial 16 bold",
                                         bg=background_color,
                                         padx=10, pady=10)
         self.temp_heading_label.grid(row=0)
+        # Temperature Conversion Heading (row 0)
+        self.temp_converter_label = Label(self.converter_frame, text="Temperature Converter",
+                                          font=("arial", "16", "bold"),
+                                          bg=background_color,
+                                          padx=10, pady=10)
+        self.temp_converter_label.grid(row=0)
 
+        # history Button (row 1)
+        self.history_button = Button(self.converter_frame, text="History",
+                                  font=("arial", "14"),
+                                  padx=10, pady=10,
+                                  command=lambda: self.history(self.all_calc_list))
+        self.history_button.grid(row=1, pady=10)
+
+    def history(self, calc_history):
+        History(self, calc_history)
         # User instructions (row 1)
         self.temp_instructions_label = Label(self.converter_frame,
                                              text="Type in the amount to be "
@@ -33,7 +55,6 @@ class Converter:
                                              font="Arial 10 italic", wrap=290,
                                              justify=LEFT, bg=background_color,
                                              padx=10, pady=10)
-
         self.temp_instructions_label.grid(row=1)
 
         # Temperature entry box (row 2)
@@ -42,7 +63,7 @@ class Converter:
         self.to_convert_entry.grid(row=2)
 
         # Conversion button frame (row 3), orchid3 | khaki1
-        self.conversion_buttons_frame = Frame(self.converter_frame)
+        self.conversion_buttons_frame =Frame(self.converter_frame)
         self.conversion_buttons_frame.grid(row=3, pady=10)
 
         self.to_c_button = Button(self.conversion_buttons_frame,
@@ -63,24 +84,6 @@ class Converter:
                                      pady=10, text="Conversion goes here")
         self.converted_label.grid(row=4)
 
-        # Conversion buttons frame (row 3)
-        self.converter_buttons_frame = Frame(self.converter_frame)
-        self.converter_buttons_frame.grid(row=3, pady=10)
-
-        self.to_c_button = Button(self.conversion_buttons_frame,
-                                  text="To Centigrade", font="Arial 10 bold",
-                                  bg="Khaki1", padx=10, pady=10)
-        self.to_c_button.grid(row=0, column=0)
-
-        self.to_f_button = Button(self.conversion_buttons_frame,
-                                  text="To Fahrenheit", font="arial 10 bold",
-                                  bg="Orchid1", padx=10, pady=10)
-        self.to_f_button.grid(row=0, column=1)
-
-        # Answer label (row 4)
-        self.converted_label = Label(self.converter_frame, font="arial 14 bold",
-                                     fg="purple")
-
         # History / Help button frame (row 5)
         self.hist_help_frame = Frame(self.converter_frame)
         self.hist_help_frame.grid(row=5, pady=10)
@@ -90,7 +93,7 @@ class Converter:
                                      command=lambda: self.history(self.all_calc_list))
         self.history_button.grid(row=0, column=0)
 
-        if len(self.all_calc_list) ==0:
+        if len(self.all_calc_list) == 0:
             self.history_button.config(state=DISABLED)
 
         self.help_button = Button(self.hist_help_frame, font="arial 12 bold",
@@ -138,9 +141,9 @@ class Converter:
                 self.to_convert_entry.configure(bg=error)
 
             # Add Answer to list for history
-            if answer != "Too Cold":
+            if has_errors != "yes":
                 self.all_calc_list.append(answer)
-                print(self.all_calc_list)
+                self.history_button.config(state=NORMAL)
 
         except ValueError:
             self.converted_label.configure(text="Enter a Number!!", fg="red")
@@ -155,9 +158,12 @@ class Converter:
         return rounded
 
 
-# main routine
-if __name__ == "__main__":
-    root = Tk()
-    root.title("Temperature Converter")
-    something = Converter()
-    root.mainloop()
+class History:
+@ -120,7 +209,6 @@ class History:
+                                     font="Arial 12 bold", command=partial(self.close_history))
+        self.dismiss_button.grid(row=0, column=1)
+
+
+    def close_history(self, partner) :
+        # Put history button back to normal
+        partner.history_button.config(state=NORMAL)
