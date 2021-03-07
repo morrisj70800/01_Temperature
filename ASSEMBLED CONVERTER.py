@@ -11,9 +11,14 @@ class Converter:
         background_color = "light blue"
 
         # Initialise list to hold calculations history
+        '''self.all_calc_list = ['0 degrees C is -17.8 degrees F',
+                              '0 degrees C is 32 degrees F',
+                              '24 degrees C is 75.2 degrees F',
+                              '100 degrees C is 37.8 degrees F']'''
+
         self.all_calc_list = []
 
-        # Converter Frame
+        # Converter Main screen GUI...
         self.converter_frame = Frame(width=300, bg=background_color,
                                      pady=10)
         self.converter_frame.grid()
@@ -92,7 +97,7 @@ class Converter:
             to_convert = float(to_convert)
             has_errors = "no"
 
-            # Check and convert to Farhrenheit
+            # Check and convert to Fahrenheit
             if low == -273 and to_convert >= low:
                 fahrenheit = (to_convert * 9/5) + 32
                 to_convert = self.round_it(to_convert)
