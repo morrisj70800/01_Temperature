@@ -73,7 +73,7 @@ class Converter:
         self.hist_help_frame.grid(row=5, pady=10)
 
         self.history_button = Button(self.hist_help_frame, font="arial 12 bold",
-                                       text="Calculation History", width=15,
+                                     text="Calculation History", width=15,
                                      command=lambda: self.history(self.all_calc_list))
         self.history_button.grid(row=0, column=0)
 
@@ -214,7 +214,6 @@ class History:
         self.dismiss_button = Button(self.export_dismiss_frame, text="Dismiss",
                                      font="Arial 12 bold", command=partial(self.close_history))
         self.dismiss_button.grid(row=0, column=1)
-
 
     def close_history(self, partner) :
         # Put history button back to normal

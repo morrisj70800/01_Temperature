@@ -11,7 +11,7 @@ class Converter:
         background_color = "light blue"
 
         # Converter Main Screen GUI...
-        self.converter_frame = Frame(width=600, height=300,
+        self.converter_frame = Frame(width=300, height=300,
                                      bg=background_color,
                                      pady=10)
 
@@ -36,7 +36,7 @@ class Converter:
 
 
 class Export:
-    def __init__(self, partner):
+    def __init__(self, partner, calc_history):
 
         background ="light blue"
 
@@ -46,29 +46,31 @@ class Export:
         # Sets up child window (ie: export box)
         self.export_box = Toplevel ()
 
-        # if user press cross at top, closes export and 'releases' export button
-        self.export_box.protocol('WM_DELETE_WINDOW', partial(self.close_export, partner))
+        # if user press cross at top, closes export and
+        # 'releases' export button
+        self.export_box.protocol('WM_DELETE_WINDOW',
+                                 partial(self.close_export, partner))
+
         # Set up Gui Frame
         self.export_frame = Frame(self.export_box, bg=background)
         self.export_frame.grid()
 
-        # Set Up export heading (row 0)
-        self.how_heading = Label(self.export_frame, text=" Export / Instructions",
-                                 font="arial 10 bold", bg=background)
+        # Set Up Export heading (row 0)
+        self.how_heading = Label(self.export_frame,
+                                 text=" Export / Instructions",
+                                 font="arial 14 bold", bg=background)
         self.how_heading.grid(row=0)
 
-        # export instructions (label, row 1)
+        # Export instructions (label, row 1)
         self.export_text = Label(self.export_frame, text="Enter a file name "
                                                          "in the box below "
                                                          "and press the save "
                                                          " button to save your "
-                                                         " calculation history"
+                                                         " calculation history "
                                                          "to a text file.",
-
                              justify=LEFT, width=40,
                                  bg=background, wrap=250)
-
-        self.export_text.grid(row=2, pady=10)
+        self.export_text.grid(row=1)
 
         # Warning text(row 2)
         self.export_text = Label(self.export_frame, text="if the filename "
@@ -79,47 +81,29 @@ class Export:
                                                          "your calculation "
                                                          "history",
                                  justify=LEFT, width=40, bg="#ffafaf", fg="maroon",
-                                 font="arial 10 italic", wrap=225, padx=10,
-                                 pady=10)
-
-        # Generate string from list of calculations...
-        export_string = ""
-
-        if len(calc_export) >= 7:
-            for item in range(0, 7):
-                export_string += calc_export[len(calc_export)
-                                               - item - 1]+"\n"
-
-        else:
-            for item in calc_export:
-                export_string += calc_export[len(calc_export) -
-                                               calc_export.index(item) - 1] + "\n"
-                self.export_text.config(text="Here is your calculation "
-                                             "export. You can use the "
-                                             "export button to save this "
-                                             "data to a text file if "
-                                             "desired.")
+                                   font="arial 10 italic", wrap=225, padx=10,
+                                   pady=10)
+        self.export_text.grid(row=2, pady=10)
 
         # Filename Entry Box (row 3)
-        self.filename_entry = Label(self.export_frame, text=export_string,
-                                bg=background,font="arial 14 bold", justify=CENTER)
-        self.filename_entry.grid(row= 2)
+        self.filename_entry = Entry(self.export_frame, width=20,
+                               font="arial 14 bold", justify=CENTER)
+        self.filename_entry.grid(row= 3, pady=10)
 
         # Save / Cancel Frame (row 4)
         self.save_cancel_frame = Frame(self.export_frame)
         self.save_cancel_frame.grid(row=5, pady=10)
 
         # Save and Cancel Buttons (row 0 of save_cancel_frame)
-        self.save_button = Button(self.save_cancel_frame, text="Self",
-                                  font="arial 12 bold")
+        self.save_button = Button(self.save_cancel_frame, text="Save")
         self.save_button.grid(row=0, column=0)
 
         self.cancel_button = Button(self.save_cancel_frame, text="Cancel",
-                                     font="Arial 12 bold", command=partial(self.close_export, partner))
+                                command=partial(self.close_export, partner))
         self.cancel_button.grid(row=0, column=1)
 
 
-    def close_export(self, partner) :
+    def close_export(self, partner):
         # Put export button back to normal
         partner.export_button.config(state=NORMAL)
         self.export_box.destroy()
