@@ -52,14 +52,16 @@ class History:
         self.history_box = Toplevel ()
 
         # if user press cross at top, closes history and 'releases' history button
-        self.history_box.protocol('WM_DELETE_WINDOW', partial(self.close_history, partner))
+        self.history_box.protocol('WM_DELETE_WINDOW',
+                                  partial(self.close_history, partner))
+
         # Set up Gui Frame
         self.history_frame = Frame(self.history_box, bg=background)
         self.history_frame.grid()
 
         # Set Up history heading (row 0)
-        self.how_heading = Label(self.history_frame, text=" history / Instructions",
-                                 font="arial 10 bold", bg=background)
+        self.how_heading = Label(self.history_frame, text="Calculation History",
+                                 font="arial 19 bold", bg=background)
         self.how_heading.grid(row=0)
 
         # history text (label, row 1)
@@ -122,7 +124,7 @@ class History:
     def export(self, calc_history):
         Export(self, calc_history)
 
-    class Export:
+class Export:
         def __init__(self, partner, calc_history):
 
             print(calc_history)
@@ -141,7 +143,7 @@ class History:
                                      partial(self.close_export, partner))
 
             # Set up Gui Frame
-            self.export_frame = Frame(self.export_box, bg=background)
+            self.export_frame = Frame(self.export_box, width=300, bg=background)
             self.export_frame.grid()
 
             # Set Up Export heading (row 0)
